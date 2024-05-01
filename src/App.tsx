@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CustomNavbar } from './components/shared/CustomNavbar';
 import { CustomFooter } from './components/shared/CustomFooter';
 import { NotFound } from './components/shared/NotFound';
+import Home from './components/Home';
 
 function App() {
   // Firestore database
@@ -15,7 +16,7 @@ function App() {
       <CustomNavbar />
       <Routes>
         {/* Home page */}
-        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/" element={<Home />} />
 
         {/* Volunteer-related pages */}
         <Route path="/activities" element={<h1>Activities</h1>} />
