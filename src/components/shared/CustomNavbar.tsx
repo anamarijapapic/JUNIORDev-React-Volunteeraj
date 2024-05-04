@@ -1,7 +1,11 @@
-import { DarkThemeToggle, Navbar } from 'flowbite-react';
+import { useContext } from 'react';
+import { DarkThemeToggle, Navbar, ToggleSwitch } from 'flowbite-react';
 import { NavLink } from 'react-router-dom';
+import AdminContext from '../../context/AdminContext';
 
 export function CustomNavbar() {
+  const { isAdmin, toggleAdmin } = useContext(AdminContext);
+
   return (
     <Navbar fluid>
       <Navbar.Brand as={NavLink} to="/">
@@ -11,6 +15,12 @@ export function CustomNavbar() {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
+        <ToggleSwitch
+          className="mr-4"
+          label="Admin"
+          checked={isAdmin}
+          onChange={() => toggleAdmin(!isAdmin)}
+        />
         <DarkThemeToggle />
         <Navbar.Toggle />
       </div>
