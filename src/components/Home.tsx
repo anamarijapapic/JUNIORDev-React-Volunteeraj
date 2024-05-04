@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Hero exploreRef={exploreRef} />
-      <SocialProofNumbers activities={123} organizations={12} volunteers={34} />
+      <SocialProofNumbers />
       <Features exploreRef={exploreRef} />
       <Mission />
       <Team />
