@@ -3,19 +3,21 @@ import {
   DocumentData,
   collection,
   getDocs,
+  orderBy,
   query,
   where,
 } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 
-export const useNonAcceptedOrganizations = () => {
+export const useNonAcceptedOrganizations = (sortOrder: 'asc' | 'desc') => {
   const [waitlist, setWaitlist] = useState<DocumentData[]>([]);
 
   const fetchOrganizations = useCallback(async () => {
     // Get organizations that accepted = false
     const waitlistQuery = query(
       collection(db, 'organizations'),
-      where('accepted', '==', false)
+      where('accepted', '==', false),
+      orderBy('name', sortOrder)
     );
     const waitlistSnapshot = await getDocs(waitlistQuery);
     const waitlistData = waitlistSnapshot.docs.map((doc) => ({
@@ -23,7 +25,7 @@ export const useNonAcceptedOrganizations = () => {
       ...doc.data(),
     }));
     setWaitlist(waitlistData);
-  }, []);
+  }, [sortOrder]);
 
   useEffect(() => {
     fetchOrganizations();

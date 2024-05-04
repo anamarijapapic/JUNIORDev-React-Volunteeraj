@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { DocumentData } from '@firebase/firestore-types';
-import { Button } from 'flowbite-react';
+import { Button, Label, Select } from 'flowbite-react';
 import { BsTrash } from 'react-icons/bs';
 import Organization from './Organization';
 import DeleteModal from '../shared/Modals/DeleteModal';
@@ -9,11 +9,15 @@ import useDeleteOrganization from '../../hooks/organizations/useDeleteOrganizati
 interface OrganizationListProps {
   organizations: DocumentData[];
   onOrganizationDeleted: (id: string) => void;
+  sortOrder: 'asc' | 'desc';
+  setSortOrder: Dispatch<SetStateAction<'asc' | 'desc'>>;
 }
 
 const OrganizationList: React.FC<OrganizationListProps> = ({
   organizations,
   onOrganizationDeleted,
+  sortOrder,
+  setSortOrder,
 }) => {
   const { deleteOrganization } = useDeleteOrganization();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -42,6 +46,19 @@ const OrganizationList: React.FC<OrganizationListProps> = ({
               Organizations that are on a mission to make the world a better
               place.
             </p>
+          </div>
+
+          <div className="flex justify-end items-center mt-8">
+            <Label className="mr-4" htmlFor="sortOrder">
+              Sort by:
+            </Label>
+            <Select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+            >
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </Select>
           </div>
 
           <div className="grid grid-cols-1 mt-12 text-center sm:mt-16 gap-x-20 gap-y-6">

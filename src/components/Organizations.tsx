@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Hero from './organizations/Hero';
 import SubmitOrganization from './organizations/SubmitOrganization';
 import OrganizationList from './organizations/OrganizationsList';
@@ -6,8 +7,10 @@ import useAcceptedOrganizations from '../hooks/organizations/useAcceptedOrganiza
 import useNonAcceptedOrganizations from '../hooks/organizations/useNonAcceptedOrganizations';
 
 const Organizations = () => {
-  const { organizations, refreshOrganizations } = useAcceptedOrganizations();
-  const { waitlist, refreshWaitlist } = useNonAcceptedOrganizations();
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const { organizations, refreshOrganizations } =
+    useAcceptedOrganizations(sortOrder);
+  const { waitlist, refreshWaitlist } = useNonAcceptedOrganizations(sortOrder);
 
   return (
     <>
@@ -18,6 +21,8 @@ const Organizations = () => {
       <OrganizationList
         organizations={organizations}
         onOrganizationDeleted={refreshOrganizations}
+        sortOrder={sortOrder}
+        setSortOrder={setSortOrder}
       />
 
       <OrganizationsWaitlist
@@ -27,6 +32,8 @@ const Organizations = () => {
           refreshWaitlist();
           refreshOrganizations();
         }}
+        sortOrder={sortOrder}
+        setSortOrder={setSortOrder}
       />
     </>
   );

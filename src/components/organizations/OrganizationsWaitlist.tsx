@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { DocumentData } from '@firebase/firestore-types';
-import { Button } from 'flowbite-react';
+import { Button, Label, Select } from 'flowbite-react';
 import { BsCheck, BsTrash } from 'react-icons/bs';
 import Organization from './Organization';
 import DeleteModal from '../shared/Modals/DeleteModal';
@@ -11,12 +11,16 @@ interface OrganizationsWaitlistProps {
   waitlist: DocumentData[];
   onOrganizationDeleted: (id: string) => void;
   onOrganizationAccepted: (id: string) => void;
+  sortOrder: 'asc' | 'desc';
+  setSortOrder: Dispatch<SetStateAction<'asc' | 'desc'>>;
 }
 
 const OrganizationsWaitlist: React.FC<OrganizationsWaitlistProps> = ({
   waitlist,
   onOrganizationDeleted,
   onOrganizationAccepted,
+  sortOrder,
+  setSortOrder,
 }) => {
   const { deleteOrganization } = useDeleteOrganization();
   const { updateOrganization } = useAcceptOrganization();
@@ -51,6 +55,19 @@ const OrganizationsWaitlist: React.FC<OrganizationsWaitlistProps> = ({
             <p className="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
               Organizations that are waiting to be accepted.
             </p>
+          </div>
+
+          <div className="flex justify-end items-center mt-8">
+            <Label className="mr-4" htmlFor="sortOrder">
+              Sort by:
+            </Label>
+            <Select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+            >
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </Select>
           </div>
 
           <div className="grid grid-cols-1 mt-12 text-center sm:mt-16 gap-x-20 gap-y-6">
