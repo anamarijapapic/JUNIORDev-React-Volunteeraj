@@ -70,7 +70,7 @@ Dodatne mogućnosti:
 
 - Implementirajte mogućnost ocjenjivanja volontera. Uz svakog volontera dodajte mogućnost unosa ocjene (npr. 1-5) ili ocjenjivanja pomoću ikona zvjezdica. Na prikazu volontera dodajte brojač ocjena i prosječnu ocjenu.
 - Možete implementirati i mogućnost ostavljanja komentara uz pojedinog volontera. Admin bi u tom slučaju trebao imati mogućnost brisanja komentara.
-- Prilikom dodavanja volontera možete dodati mogućnost i dodavanja slike koja će se onda naravno koristiti i kod prikaza svih volontera. Umjesto uploada slika također možete koristiti neki od [besplatnih API](https://www.stefanjudis.com/blog/apis-to-generate-random-user-avatars/) za generiranje *avatara* novih korisnika.
+- Prilikom dodavanja volontera možete dodati mogućnost i dodavanja slike koja će se onda naravno koristiti i kod prikaza svih volontera. Umjesto uploada slika također možete koristiti neki od [besplatnih API](https://www.stefanjudis.com/blog/apis-to-generate-random-user-avatars/) za generiranje _avatara_ novih korisnika.
 
 ![Volonteri](https://github.com/anamarijapapic/JUNIORDev-React-Volunteeraj/assets/92815435/ab1e3da7-10ac-4c09-bb97-a61475c999ee)
 
@@ -93,4 +93,4 @@ Popis funkcionalnosti:
 
 ## Predaja rješenja
 
-Na početku rada inicijalizirajte **git** repozitorij unutar svog projekta te koristite njegove mogućnosti (stvaranje *commit*-a i grananje) tokom razvoja projekta. Otvorite udaljeni repozitorij na nekoj od web platformi (npr. Github) te postavite taj repozitorij kao javni (*public*). Poveznicu (*link*) tj. adresu repozitorija ćete zapisati na Edit Dalmacija portalu - među materijalima tečaja ćete pronaći i *link* za upisivanje repozitorija.
+Na početku rada inicijalizirajte **git** repozitorij unutar svog projekta te koristite njegove mogućnosti (stvaranje _commit_-a i grananje) tokom razvoja projekta. Otvorite udaljeni repozitorij na nekoj od web platformi (npr. Github) te postavite taj repozitorij kao javni (_public_). Poveznicu (_link_) tj. adresu repozitorija ćete zapisati na Edit Dalmacija portalu - među materijalima tečaja ćete pronaći i _link_ za upisivanje repozitorija.
