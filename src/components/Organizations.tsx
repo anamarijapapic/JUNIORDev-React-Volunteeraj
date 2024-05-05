@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AdminContext from '../context/AdminContext';
 import Hero from './organizations/Hero';
 import SubmitOrganization from './organizations/SubmitOrganization';
 import OrganizationList from './organizations/OrganizationsList';
@@ -7,6 +8,7 @@ import useAcceptedOrganizations from '../hooks/organizations/useAcceptedOrganiza
 import useNonAcceptedOrganizations from '../hooks/organizations/useNonAcceptedOrganizations';
 
 const Organizations = () => {
+  const { isAdmin } = useContext(AdminContext);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const { organizations, refreshOrganizations } =
     useAcceptedOrganizations(sortOrder);
@@ -25,16 +27,18 @@ const Organizations = () => {
         setSortOrder={setSortOrder}
       />
 
-      <OrganizationsWaitlist
-        waitlist={waitlist}
-        onOrganizationDeleted={refreshWaitlist}
-        onOrganizationAccepted={() => {
-          refreshWaitlist();
-          refreshOrganizations();
-        }}
-        sortOrder={sortOrder}
-        setSortOrder={setSortOrder}
-      />
+      {isAdmin && (
+        <OrganizationsWaitlist
+          waitlist={waitlist}
+          onOrganizationDeleted={refreshWaitlist}
+          onOrganizationAccepted={() => {
+            refreshWaitlist();
+            refreshOrganizations();
+          }}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+        />
+      )}
     </>
   );
 };

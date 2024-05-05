@@ -50,13 +50,13 @@ const SubmitOrganization = ({
   };
 
   return (
-    <section className="bg-gray-200 dark:bg-gray-800">
+    <section className="bg-center bg-no-repeat bg-[url('./images/content/organizations-form-bg.png')] bg-primary-800 dark:bg-gray-800 bg-blend-multiply">
       <div className="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <h2 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl text-white">
             Submit a new organization
           </h2>
-          <p className="mt-4 text-base font-normal text-gray-500 sm:text-xl dark:text-gray-400">
+          <p className="mt-4 text-base font-normal sm:text-xl text-gray-400">
             Let volunteers know about your organization.
           </p>
         </div>

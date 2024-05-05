@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import {
+  collection,
+  getCountFromServer,
+  query,
+  where,
+} from 'firebase/firestore';
 import { db } from '../../config/firebase';
 
 export const useSocialProofNumbers = () => {
@@ -11,16 +16,20 @@ export const useSocialProofNumbers = () => {
 
   useEffect(() => {
     const fetchSocialProofNumbers = async () => {
-      const activitiesQuery = await getDocs(collection(db, 'activities'));
-      const organizationsQuery = await getDocs(
+      const activitiesSnapshot = await getCountFromServer(
+        collection(db, 'activities')
+      );
+      const organizationsSnapshot = await getCountFromServer(
         query(collection(db, 'organizations'), where('accepted', '==', true))
       );
-      const volunteersQuery = await getDocs(collection(db, 'volunteers'));
+      const volunteersSnapshot = await getCountFromServer(
+        collection(db, 'volunteers')
+      );
 
       setStatistics({
-        activities: activitiesQuery.size,
-        organizations: organizationsQuery.size,
-        volunteers: volunteersQuery.size,
+        activities: activitiesSnapshot.data().count,
+        organizations: organizationsSnapshot.data().count,
+        volunteers: volunteersSnapshot.data().count,
       });
     };
     fetchSocialProofNumbers();
