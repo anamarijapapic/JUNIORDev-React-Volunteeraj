@@ -37,11 +37,7 @@ const InputForm: React.FC<InputFormProps> = ({
     >
       <div>
         <div className="mb-2 block">
-          <Label
-            htmlFor="name"
-            value="Organization name"
-            className="text-white"
-          />
+          <Label htmlFor="name" value="Organization name" />
           <span className="text-red-500">*</span>
         </div>
         <TextInput
@@ -54,11 +50,7 @@ const InputForm: React.FC<InputFormProps> = ({
       </div>
       <div>
         <div className="mb-2 block">
-          <Label
-            htmlFor="description"
-            value="Description"
-            className="text-white"
-          />
+          <Label htmlFor="description" value="Description" />
         </div>
         <Textarea
           id="description"
@@ -71,7 +63,7 @@ const InputForm: React.FC<InputFormProps> = ({
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="file" value="Upload file" className="text-white" />
+          <Label htmlFor="file" value="Upload file" />
         </div>
         <FileInput
           id="file"
@@ -88,7 +80,7 @@ const InputForm: React.FC<InputFormProps> = ({
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="website" value="Website" className="text-white" />
+          <Label htmlFor="website" value="Website" />
         </div>
         <TextInput
           id="website"
@@ -103,7 +95,7 @@ const InputForm: React.FC<InputFormProps> = ({
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="email" value="Email" className="text-white" />
+          <Label htmlFor="email" value="Email" />
           <span className="text-red-500">*</span>
         </div>
         <TextInput
@@ -118,7 +110,7 @@ const InputForm: React.FC<InputFormProps> = ({
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="street" value="Street" className="text-white" />
+          <Label htmlFor="street" value="Street" />
           <span className="text-red-500">*</span>
         </div>
         <TextInput
@@ -134,7 +126,7 @@ const InputForm: React.FC<InputFormProps> = ({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="city" value="City" className="text-white" />
+            <Label htmlFor="city" value="City" />
             <span className="text-red-500">*</span>
           </div>
           <TextInput
@@ -148,7 +140,7 @@ const InputForm: React.FC<InputFormProps> = ({
         </div>
         <div>
           <div className="mb-2 block">
-            <Label htmlFor="zip" value="ZIP" className="text-white" />
+            <Label htmlFor="zip" value="ZIP" />
             <span className="text-red-500">*</span>
           </div>
           <TextInput
