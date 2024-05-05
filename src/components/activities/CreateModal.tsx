@@ -36,10 +36,15 @@ const CreateModal = ({
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    await handleCreate(formData);
-    onActivityAdded();
-    setOpenModal(false);
-    resetForm();
+    try {
+      await handleCreate(formData);
+      onActivityAdded();
+      setOpenModal(false);
+      resetForm();
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   const resetForm = () => {

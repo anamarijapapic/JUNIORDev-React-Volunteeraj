@@ -18,9 +18,14 @@ const Volunteer = ({
   const [id, setId] = useState('');
 
   const handleDelete = async (id: string) => {
-    await deleteVolunteer(id);
-    onVolunteerDeleted(id);
-    setIsDeleteModalOpen(false);
+    try {
+      await deleteVolunteer(id);
+      onVolunteerDeleted(id);
+      setIsDeleteModalOpen(false);
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   const handleOpenDeleteModal = (id: string) => {
@@ -56,7 +61,7 @@ const Volunteer = ({
           <img
             alt={volunteer.firstName + ' ' + volunteer.lastName}
             src={volunteer.avatarUrl}
-            className="mb-3 rounded-full shadow-lg w-20 h-20"
+            className="mb-3 rounded-full shadow-lg w-20 h-20 object-cover"
           />
         ) : (
           <div className="mb-3 rounded-full shadow-lg relative inline-flex items-center justify-center w-20 h-20 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">

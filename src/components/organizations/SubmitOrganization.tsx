@@ -25,15 +25,20 @@ const SubmitOrganization = ({
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    await handleCreate(formData);
-    onOrganizationAdded();
-    resetForm();
+    try {
+      await handleCreate(formData);
+      onOrganizationAdded();
+      resetForm();
 
-    setMessage(
-      'The request has been sent - the organization will be added to the list after approval by one of the administrators.'
-    );
+      setMessage(
+        'The request has been sent - the organization will be added to the list after approval by one of the administrators.'
+      );
 
-    setTimeout(() => setMessage(''), 10000); // Clear the message after 10 seconds
+      setTimeout(() => setMessage(''), 10000); // Clear the message after 10 seconds
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   const resetForm = () => {

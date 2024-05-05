@@ -44,12 +44,17 @@ const ActivitiesList = () => {
   };
 
   const handleDelete = async (id: string) => {
-    await deleteActivity(id);
-    refreshActivities({
-      city: selectedCity,
-      sortOrder: sortOrder as OrderByDirection,
-    });
-    setIsOpenDeleteModal(false);
+    try {
+      await deleteActivity(id);
+      refreshActivities({
+        city: selectedCity,
+        sortOrder: sortOrder as OrderByDirection,
+      });
+      setIsOpenDeleteModal(false);
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   const handleOpenDetailsModal = (id: string) => {

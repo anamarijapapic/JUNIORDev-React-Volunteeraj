@@ -29,9 +29,14 @@ const OrganizationsWaitlist: React.FC<OrganizationsWaitlistProps> = ({
   const [id, setId] = useState('');
 
   const handleDelete = async (id: string) => {
-    await deleteOrganization(id);
-    onOrganizationDeleted(id);
-    setIsDeleteModalOpen(false);
+    try {
+      await deleteOrganization(id);
+      onOrganizationDeleted(id);
+      setIsDeleteModalOpen(false);
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   const handleOpenDeleteModal = (id: string) => {
@@ -40,8 +45,13 @@ const OrganizationsWaitlist: React.FC<OrganizationsWaitlistProps> = ({
   };
 
   const handleAccept = async (id: string) => {
-    await updateOrganization(id);
-    onOrganizationAccepted(id);
+    try {
+      await updateOrganization(id);
+      onOrganizationAccepted(id);
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   return (

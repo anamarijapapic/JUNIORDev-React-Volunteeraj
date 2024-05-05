@@ -39,10 +39,16 @@ const CreateModal = ({
     if (skills.length === 0) {
       skills.push('Other');
     }
-    await handleCreate({ ...rest, skills });
-    onVolunteerAdded();
-    setOpenModal(false);
-    resetForm();
+
+    try {
+      await handleCreate({ ...rest, skills });
+      onVolunteerAdded();
+      setOpenModal(false);
+      resetForm();
+    } catch (error) {
+      console.error(error);
+      alert((error as Error).message);
+    }
   };
 
   const resetForm = () => {
