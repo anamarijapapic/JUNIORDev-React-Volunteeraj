@@ -60,15 +60,15 @@ const VolunteersList = () => {
               <div className="flex justify-end items-center mt-8">
                 <button
                   onClick={() => setIsOpenCreateModal(true)}
-                  className="group block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500"
+                  className="group block max-w-xs mx-auto rounded-lg p-6 bg-cyan-100 ring-1 ring-cyan-800/5 shadow-sm space-y-3 hover:bg-cyan-500 hover:ring-cyan-500"
                 >
                   <div className="flex items-center space-x-3">
-                    <BsPersonAdd className="w-6 h-6 text-slate-900 group-hover:text-white" />
-                    <h3 className="text-slate-900 group-hover:text-white text-sm font-semibold">
+                    <BsPersonAdd className="w-6 h-6 text-cyan-800 group-hover:text-white" />
+                    <h3 className="text-cyan-800 group-hover:text-white text-sm font-semibold">
                       Add a volunteer
                     </h3>
                   </div>
-                  <p className="text-slate-500 group-hover:text-white text-sm text-left">
+                  <p className="text-cyan-800 group-hover:text-white text-sm text-left">
                     Add a new volunteer to the platform.
                   </p>
                 </button>

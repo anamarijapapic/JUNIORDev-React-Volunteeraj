@@ -7,6 +7,7 @@ import { NotFound } from './components/shared/NotFound';
 import Home from './components/Home';
 import Organizations from './components/Organizations';
 import Volunteers from './components/Volunteers';
+import Activities from './components/Activities';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -24,7 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* Volunteer-related pages */}
-          <Route path="/activities" element={<h1>Activities</h1>} />
+          <Route path="/activities" element={<Activities />} />
           <Route path="/organizations" element={<Organizations />} />
           <Route path="/volunteers" element={<Volunteers />} />
 
