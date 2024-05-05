@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import AdminContext from './context/AdminContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CustomNavbar } from './components/shared/CustomNavbar';
@@ -5,7 +6,7 @@ import { CustomFooter } from './components/shared/CustomFooter';
 import { NotFound } from './components/shared/NotFound';
 import Home from './components/Home';
 import Organizations from './components/Organizations';
-import { useState } from 'react';
+import Volunteers from './components/Volunteers';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -25,7 +26,7 @@ function App() {
           {/* Volunteer-related pages */}
           <Route path="/activities" element={<h1>Activities</h1>} />
           <Route path="/organizations" element={<Organizations />} />
-          <Route path="/volunteers" element={<h1>Volunteers</h1>} />
+          <Route path="/volunteers" element={<Volunteers />} />
 
           {/* 404 page */}
           <Route path="*" element={<NotFound />} />
