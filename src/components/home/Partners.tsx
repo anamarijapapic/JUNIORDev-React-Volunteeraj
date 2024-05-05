@@ -7,7 +7,7 @@ const Partners = () => {
       <div className="py-8 lg:py-16 mx-auto max-w-screen-xl px-4">
         <h2 className="mb-8 lg:mb-16 text-3xl font-extrabold tracking-tight leading-tight text-center text-gray-900 dark:text-white md:text-4xl">
           Powered by the
-          <span className="text-primary-600 dark:text-primary-500">
+          <span className="text-cyan-600 dark:text-cyan-500">
             {' '}
             Split IT community
           </span>

@@ -89,6 +89,13 @@ const VolunteersList = () => {
             </>
           )}
           <div className="flex flex-col gap-4 p-4">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Use the filters to find the right volunteer for your organization.
+              <span className="block mt-2">
+                There are <b>{volunteers.length}</b> volunteers in total that
+                suit your criteria.
+              </span>
+            </p>
             <Label className="mr-4" htmlFor="city">
               Filter by city:
             </Label>
